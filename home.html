@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <title>Amaizing Events</title>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- BARRA DE NAVEGACION -->
+    <nav class="navbar navbar-expand-lg navbar-light" >
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-Toggler" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="images/Logo.png" alt="Logo Amaizing Events" width="200">
+        </a>
+        <div class="collapse navbar-collapse" id="navbar-Toggler">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link active btn" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn" href="upcoming-event.html">Upcomings Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn" href="past-event.html">Past Events</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link btn" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link btn " href="stats.html">Stats</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+    <!-- SEGUNDO TITULO -->
+    <div class="carrusel">
+      <a href="stats.html">
+        <h2><i class="bi bi-caret-left-fill"></i></h2>
+      </a>
+      <h2 class="titulo-carrusel">Home</h2>
+      <a href="upcoming-event.html">
+        <h2><i class="bi bi-caret-right-fill"></i></h2>
+      </a>
+    </div>
+  </header>
+  <section>
+    <!-- BARRA BUSQUEDA -->
+  <div class="container-fluid caja-busqueda">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoria" id="categoria1" value="categoria1">
+      <label class="form-check-label" for="categoria1">categoria 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoria" id="categoria2" value="categoria2">
+      <label class="form-check-label" for="categoria2">categoria 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoria" id="categoria3" value="categoria3">
+      <label class="form-check-label" for="categoria3">categoria 3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoria" id="categoria4" value="categoria4">
+      <label class="form-check-label" for="categoria4">categoria 4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoria" id="categoria5" value="categoria5">
+      <label class="form-check-label" for="categoria5">categoria 5</label>
+    </div>
+    <fieldset class="busqueda2 col">
+      <input type="text" id="busqueda" name="busqueda" size="22">
+      <label for="busqueda"><button type="submit">go</button></label>
+    </fieldset>
+  </div>
+      <!-- TARJETAS -->
+    <section>
+      <div class="conteiner tarjetas">
+        <div class="card" style="width: 18rem;">
+          <img src="images/books.jpg" class="card-img-top" alt="Book Exchange">
+          <div class="card-body">
+            <h5 class="card-title">Book Exchange</h5>
+            <p class="card-text">Bring your unused school book and bring the one you need.</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="images/Cine7.jpg" class="card-img-top" alt="Let's go to the cinema">
+          <div class="card-body">
+            <h5 class="card-title">Let's go to the cinema</h5>
+            <p class="card-text">Marvel's Avengers 3d premiere the start of an epic saga with your best superheroes</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="images/Concierto.jpg" class="card-img-top" alt="Music Concert">
+          <div class="card-body">
+            <h5 class="card-title">Music Concert</h5>
+            <p class="card-text">The only concert of the most emblematic band in the world</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="images/Feria-comidas7.jpg" class="card-img-top" alt="Food Fair">
+          <div class="card-body">
+            <h5 class="card-title">Food Fair</h5>
+            <p class="card-text">Enjoy your favorite dishes from different countries in a unique event for the whole family.</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="images/Fiesta-disfraces.jpg" class="card-img-top" alt="Costume Party">
+          <div class="card-body">
+            <h5 class="card-title">Costume Party</h5>
+            <p class="card-text">Come in your scariest costume character to win amazing prizes.</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="images/Maraton3.jpg" class="card-img-top" alt="Race">
+          <div class="card-body">
+            <h5 class="card-title">Race</h5>
+            <p class="card-text">Come and exercise, improve your health and lifestyle.</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="images/Salida-museo5.jpg" class="card-img-top" alt="Museum">
+          <div class="card-body">
+            <h5 class="card-title">Museum</h5>
+            <p class="card-text">Let's go to the paleontology museum for an incredible tour to learn about the largest dinosaurs.</p>
+            <a href="detail-event.html" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+      <!-- PIE DE PAGINA -->
+      <footer>
+        <div class="pie-pagina row">
+          <div class="iconos-redes col">
+            <a href="#">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+          </div>
+          <div class="texto-pie-pagina col">
+            <h2>Cohort</h2>
+          </div>
+        </div>
+      </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
+</body>
+</html>
