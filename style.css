@@ -39,6 +39,8 @@ h2.titulo-carrusel {
     font-size: 3em !important;
 }
 .caja-busqueda{
+    /* display: flex; */
+    justify-content: space-evenly;
     border: solid 2px black;
     margin-bottom: 20px;
 }
@@ -101,6 +103,7 @@ td{
 }
 .card-detallada{
     display: flex;
+    flex-direction: column !important;
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
@@ -113,8 +116,15 @@ td{
 .card-img-top.detallada{
     height: auto;
 }
+h2.card-title-detallada{
+    text-align: center;
+    font-size: 3rem !important;
+}
 .card-text-detallada{
     margin-bottom: 1rem;
+}
+p.card-text-detallada{
+    font-size: 1.7rem;
 }
 .pie-pagina{
     display: flex;
@@ -170,9 +180,7 @@ td{
     .card-text-detallada{
         margin-bottom: 0.5rem;
     }
-    .card-detallada{
-        flex-direction: column !important;
-    }
+   
 }
 @media screen and (max-width: 991px) and (min-width:667px){
     h2.titulo-carrusel {

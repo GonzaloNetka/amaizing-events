@@ -171,31 +171,40 @@ var data = {
       }
     ]
   };
-
 let totalEvents = data.events.map(event => event)
+console.log(totalEvents)
 
-// CREACION DE BUSQUEDA DINAMICAMENTE
-let arrayBusqueda = totalEvents.map(event => event.category)
-let filtroBusqueda = new Set(arrayBusqueda)
-let busquedaFiltrada = Array.from(filtroBusqueda)
+let query =location.search
+let parametro = new URLSearchParams(query)
+console.log(parametro)
+let idparametro = parametro.get("id")
+console.log(idparametro)
 
+let tarjetaDetail = totalEvents.find(each => each._id == idparametro)
+console.log(tarjetaDetail)
 
-function cargarBusqueda(busquedaFiltrada) {
-  let html = ``;
-  const elementoBusqueda = document.getElementById("busqueda");
-  // console.log(elementoBusqueda);
-  html += `<input onkeyup="filtroCruzado()" id="id_texto" type="text" name="cajaBusqueda" size="22" placeholder="Search">`
-  for (let i = 0; i < busquedaFiltrada.length; i++) {
-    html += `
-    <div class="form-check form-check-inline">
-      <input onclick="filtroCruzado()" class="form-check-input capturarChecks" type="checkbox" name="${busquedaFiltrada[i]}" id="${busquedaFiltrada[i]}" value="${busquedaFiltrada[i]}">
-      <label class="form-check-label" for="${busquedaFiltrada[i]}">${busquedaFiltrada[i]}</label>
+function cargarDetail(tarjetaDetail){
+let html = ``;
+const detalleASubir = document.getElementById("tarjeta-detail")
+
+html += `
+  <div class="card-detallada" style="width: 60rem;">
+  <h2 class="card-title-detallada">${tarjetaDetail.name}</h2>
+  <img src="${tarjetaDetail.image}" class="card-img-top detallada" alt="${tarjetaDetail.name}">
+    <div class="card-body">
+      
+      <p class="card-text-detallada">${tarjetaDetail.description}</p>
+      <p class="card-text-detallada">Date: ${tarjetaDetail.date}</p>
+      <p class="card-text-detallada">Category: ${tarjetaDetail.category}</p>
+      <p class="card-text-detallada">Place: ${tarjetaDetail.place}</p>
+      <p class="card-text-detallada">Capacity: ${tarjetaDetail.capacity}</p>
+      <p class="card-text-detallada">Assistance: ${tarjetaDetail.assistance}</p>
+      <p class="card-text-detallada">Price: ${tarjetaDetail.price}</p>
     </div>
-    `;
-  }
-    
-  elementoBusqueda.innerHTML = html;
+  </div>
+  `;
+  detalleASubir.innerHTML = html;
 }
+cargarDetail(tarjetaDetail);
 
-cargarBusqueda(busquedaFiltrada)
 
