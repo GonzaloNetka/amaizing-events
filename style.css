@@ -99,7 +99,8 @@ th{
     background-color:rgba(217, 169, 194, 0.839) !important;
 }
 td{
-    font-size: 1.2rem;
+    font-size: 1.4rem !important;
+    
 }
 .card-detallada{
     display: flex;
@@ -186,6 +187,10 @@ p.card-text-detallada{
     h2.titulo-carrusel {
         font-size: 2.2em !important;
     }
+    
+    p.card-text-detallada{
+        font-size: 1.4rem;
+    }
     .iconos-redes.col a{
         width: 45px;
         height: 45px;
@@ -202,10 +207,10 @@ p.card-text-detallada{
         font-size: 1.5rem !important;
     }
     th{
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
     }
     td{
-        font-size: 0.9rem;
+        font-size: 0.7rem !important;
     }
 }
 @media screen and (max-width: 668px) {
@@ -216,6 +221,13 @@ p.card-text-detallada{
         margin-top: 0.5rem;
         margin-bottom: 0.5rem !important;
         margin-right: 0.5rem !important;
+    }
+    h2.card-title-detallada{
+        text-align: center;
+        font-size: 1.5rem !important;
+    }
+    p.card-text-detallada{
+        font-size: 0.8rem;
     }
     .iconos-redes.col a{
         width: 35px;
@@ -233,10 +245,10 @@ p.card-text-detallada{
         font-size: 1rem !important;
     }
     th{
-        font-size: 1.1rem;
+        font-size: 1.1rem !important;
     }
     td{
-        font-size: 0.6rem;
+        font-size: 0.6rem !important;
     }
     .caja-contato-fila{
         min-width: 250px;

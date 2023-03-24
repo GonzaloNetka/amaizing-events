@@ -1,3 +1,28 @@
+
+let urlApi="https://mindhub-xj03.onrender.com/api/amazing"
+let data =[]
+let totalEvents =[]
+async function traerDatos() {
+  try{
+    const response= await fetch(urlApi)
+    const datos = await response.json()
+    data = datos
+    totalEvents = data.events.map(event => event)
+    console.log(totalEvents)
+    let arrayBusqueda = totalEvents.map(event => event.category)
+    let filtroBusqueda = new Set(arrayBusqueda)
+    let busquedaFiltrada = Array.from(filtroBusqueda)
+    cargarBusqueda(busquedaFiltrada)
+    console.log(busquedaFiltrada)
+    filtroCruzado()
+    cargarTarjetas(totalEvents)
+  }
+  catch(error){
+    console.log(error)
+  }
+}
+traerDatos()
+
 // CREACION DE FILTROS
 // const input = document.querySelector("input")
 // console.log(input)
@@ -48,8 +73,6 @@ function filtroCruzado(){
   }
     
 }
-
-
 // CREACION TARJETAS DINAMICAMENTE
 
 function cargarTarjetas(arrayEvents){
@@ -70,7 +93,7 @@ function cargarTarjetas(arrayEvents){
     }
     tagToUpdate.innerHTML = body;
   }
-  cargarTarjetas(totalEvents); 
+  // cargarTarjetas(totalEvents) 
 
   function tarjetaNoEncontrada(){
     let body = ``;
@@ -86,3 +109,26 @@ function cargarTarjetas(arrayEvents){
     
     tagToUpdate.innerHTML = body;
   }
+
+  // CREACION DE BUSQUEDA DINAMICAMENTE
+// let arrayBusqueda = totalEvents.map(event => event.category)
+// let filtroBusqueda = new Set(arrayBusqueda)
+// let busquedaFiltrada = Array.from(filtroBusqueda)
+
+function cargarBusqueda(busquedaFiltrada) {
+  let html = ``;
+  const elementoBusqueda = document.getElementById("busqueda");
+  // console.log(elementoBusqueda);
+  html += `<input onkeyup="filtroCruzado()" id="id_texto" type="text" name="cajaBusqueda" size="22" placeholder="Search">`
+  for (let i = 0; i < busquedaFiltrada.length; i++) {
+    html += `
+    <div class="form-check form-check-inline">
+      <input onclick="filtroCruzado()" class="form-check-input capturarChecks" type="checkbox" name="${busquedaFiltrada[i]}" id="${busquedaFiltrada[i]}" value="${busquedaFiltrada[i]}">
+      <label class="form-check-label" for="${busquedaFiltrada[i]}">${busquedaFiltrada[i]}</label>
+    </div>
+    `;
+  }
+    
+  elementoBusqueda.innerHTML = html;
+}
+// cargarBusqueda(busquedaFiltrada)

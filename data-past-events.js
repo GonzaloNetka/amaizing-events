@@ -1,21 +1,35 @@
-const tiempoActual = data.currentDate
-
-// for(let i = 0; i < data.events.length; i++){
-//   if (tiempoActual > data.events[i].date){
-//     pastEvents.push(data.events[i])
-//     // console.log("evento", data.events[i].name , "es pasado")
-//     // console.log(data.events[i].date)
-//   }else {
-//     upcomingsEvents.push(data.events[i])
-//     // console.log("evento", data.events[i].name , "es futuro")
-//     // console.log(data.events[i].date)
-//   }
-// }
+let urlApi="https://mindhub-xj03.onrender.com/api/amazing"
+let data =[]
+let totalEvents =[]
+let pastEvents =[]
+async function traerDatos() {
+  try{
+    const response= await fetch(urlApi)
+    const datos = await response.json()
+    data = datos
+    totalEvents = data.events.map(event => event)
+    console.log(totalEvents)
+    const tiempoActual = data.currentDate
+    let arrayBusqueda = totalEvents.map(event => event.category)
+    let filtroBusqueda = new Set(arrayBusqueda)
+    let busquedaFiltrada = Array.from(filtroBusqueda)
+    pastEvents = data.events.filter( pastEvent => pastEvent.date < tiempoActual)
+    cargarBusqueda(busquedaFiltrada)
+    
+    console.log(pastEvents)
+    filtroCruzado()
+    cargarTarjetas(pastEvents)
+  }
+  catch(error){
+    console.log(error)
+  }
+}
+traerDatos()
 
 function filtroCruzado(){
   let texto = document.getElementById("id_texto").value
   let checks = Array.from (document.querySelectorAll(".capturarChecks:checked")).map(each => each.value)
-  let filtro = totalEvents.filter(each =>{
+  let filtro = pastEvents.filter(each =>{
   return (
     each.name.toLowerCase().includes(texto.toLowerCase())
   ) && (
@@ -43,8 +57,8 @@ function tarjetaNoEncontrada(){
   
   tagToUpdate.innerHTML = body;
 }
-
-const pastEvents = data.events.filter( pastEvent => pastEvent.date < tiempoActual)
+// const tiempoActual = data.currentDate
+// const pastEvents = data.events.filter( pastEvent => pastEvent.date < tiempoActual)
 
 function cargarTarjetas(pastEvents){
   let body = ``;
@@ -64,4 +78,27 @@ function cargarTarjetas(pastEvents){
   }
   tagToUpdate.innerHTML = body;
 }
-cargarTarjetas(pastEvents); 
+// cargarTarjetas(pastEvents)
+
+// CREACION DE BUSQUEDA DINAMICAMENTE
+// let arrayBusqueda = totalEvents.map(event => event.category)
+// let filtroBusqueda = new Set(arrayBusqueda)
+// let busquedaFiltrada = Array.from(filtroBusqueda)
+
+function cargarBusqueda(busquedaFiltrada) {
+  let html = ``;
+  const elementoBusqueda = document.getElementById("busqueda");
+  // console.log(elementoBusqueda);
+  html += `<input onkeyup="filtroCruzado()" id="id_texto" type="text" name="cajaBusqueda" size="22" placeholder="Search">`
+  for (let i = 0; i < busquedaFiltrada.length; i++) {
+    html += `
+    <div class="form-check form-check-inline">
+      <input onclick="filtroCruzado()" class="form-check-input capturarChecks" type="checkbox" name="${busquedaFiltrada[i]}" id="${busquedaFiltrada[i]}" value="${busquedaFiltrada[i]}">
+      <label class="form-check-label" for="${busquedaFiltrada[i]}">${busquedaFiltrada[i]}</label>
+    </div>
+    `;
+  }
+    
+  elementoBusqueda.innerHTML = html;
+}
+// cargarBusqueda(busquedaFiltrada)
