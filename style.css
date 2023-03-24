@@ -70,6 +70,15 @@ h2.titulo-carrusel {
 p.card-text{
     height: 72px;
 }
+.tarjetaNoEncontrada{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  
+}
+
 .btn.btn-primary{
     background-color:rgb(217,3,104) !important ;
 }

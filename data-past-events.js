@@ -48,9 +48,10 @@ function tarjetaNoEncontrada(){
   const tagToUpdate = document.getElementById("tarjetas-past");
   body += `
     <div class="card" style="width: 18rem;">
-      <img src="" class="card-img-top" alt= "foto not found">
-      <div class="card-body">
+      <img src="images/222468-P1PZG2-870.jpg" class="card-img-top" alt= "foto not found">
+      <div class="card-body tarjetaNoEncontrada">
         <h5 class="card-title">Event not found</h5>
+        <h5 class="card-title">Try again</h5>
       </div>
     </div>
     `;
